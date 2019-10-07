@@ -14,17 +14,21 @@ Calendar 日期控件
 
 #### 引入Bootstrap
 
-`<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />`
+```
+<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+```
 
 #### 引入Calendar
 
-`<script src="./calendar.js" type="text/javascript" charset="utf8"></script>
-<link rel="stylesheet" href="./calendar.css" />`
+```
+<script src="./calendar.js" type="text/javascript" charset="utf8"></script>`
+<link rel="stylesheet" href="./calendar.css" />
+```
 
 ### 编写Html
 
-`
+```
 <div class="calendar-container">
     <div class="calendar-title">
         <div>
@@ -44,7 +48,7 @@ Calendar 日期控件
         <div style="float: none;clear: both;"></div>
     </div>
 </div>
-`
+```
 
 ### 编写Javascript
 
