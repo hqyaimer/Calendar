@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            calendar
+        </title>
+    </head>
+
+    <script src="http://code.jquery.com/jquery-3.4.1.min.js" type="text/javascript"></script>
+    <script src="./calendar.js" type="text/javascript" charset="utf8"></script>
+    <!--bootstrap-->
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+
+    <link rel="stylesheet" href="./calendar.css" />
+    <script type="text/javascript">
+        window.onload = function(){
+            $('.calendar-container').calendar({choose:function(item){
+                console.log(item.attr("data-date"));
+            }});
+        }
+    </script>
+    <body style="overflow: hidden;">
+        <div style="position: fixed;min-height: 500px;min-width: 800px;top:0px;left:0px;padding:15px;">
+            <div class="calendar-container">
+                <div class="calendar-title">
+                    <div>
+                        <input class="calendar-date" type="date">
+                    </div>
+                    <div>
+                        <div class="calendar-prevbtn"><span class="glyphicon glyphicon-chevron-left"></span></div>
+                        <div class="calendar-fdate" data-format="yyyy年MM月"></div>
+                        <div class="calendar-nextbtn"><span class="glyphicon glyphicon-chevron-right"></span></div>
+                        <div style="clear:both;"></div>
+                    </div>
+                    <div>
+                        <button class="calendar-backbtn btn btn-default">
+                            回到今天
+                        </button>
+                    </div>
+                    <div style="float: none;clear: both;"></div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

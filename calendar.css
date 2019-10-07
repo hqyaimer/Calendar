@@ -1,0 +1,76 @@
+.calendar-container {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+.calendar-table {
+    width: 100%;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+.calendar-table table {
+    width: 100%;
+}
+.calendar-container table>thead {
+    font-size: 20px;
+}
+.calendar-container table>thead th {
+    height: 60px;
+    text-align: center !important;
+}
+.calendar-container table>tbody {
+    font-size: 35px;
+}
+.calendar-container table>tbody td.active {
+    background: #fdd;
+}
+.calendar-container table>tbody td {
+    width: 14.2857%;
+    height: 100px;
+    cursor: pointer;
+}
+.calendar-container table>tbody td.prevtd, .calendar-container table>tbody td.nexttd {
+    color: #777;
+}
+.calendar-container td:hover {
+    background: #efefef;
+}
+.calendar-title {
+    margin-bottom: 10px;
+    height: 40px;
+    line-height: 40px;
+}
+.calendar-title>div {
+    width: 33.333%;
+    float: left;
+}
+.calendar-date {
+    line-height: 30px;
+    text-align: left;
+}
+.calendar-prevbtn {
+    float: left;
+    height: 100%;
+    width: 20px;
+    cursor: pointer;
+    text-align: center;
+}
+.calendar-fdate {
+    float: left;
+    width: calc(100% - 40px);
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+.calendar-nextbtn {
+    float: right;
+    height: 100%;
+    width: 20px;
+    cursor: pointer;
+    text-align: center;
+}
+.calendar-backbtn {
+    line-height: 30px;
+    padding: 4px 12px;
+    float: right;
+    display: none;
+}
