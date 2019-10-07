@@ -1,28 +1,28 @@
 Calendar 日期控件
 ===========================
 
-### 存放于Div的阳历控件，依赖于JQuery、Bootstrap
+#### 存放于Div的阳历控件，依赖于JQuery、Bootstrap
 
 开始使用
 -------
 
-## 引入依赖
+### 引入依赖
 
-### 引入JQuery
+#### 引入JQuery
 
 `<script src="http://code.jquery.com/jquery-3.4.1.min.js" type="text/javascript"></script>`
 
-### 引入Bootstrap
+#### 引入Bootstrap
 
 `<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />`
 
-### 引入Calendar
+#### 引入Calendar
 
 `<script src="./calendar.js" type="text/javascript" charset="utf8"></script>
 <link rel="stylesheet" href="./calendar.css" />`
 
-## 编写Html
+### 编写Html
 
 `
 <div class="calendar-container">
@@ -46,7 +46,7 @@ Calendar 日期控件
 </div>
 `
 
-## 编写Javascript
+### 编写Javascript
 
 ```js
 $('.calendar-container').calendar();
