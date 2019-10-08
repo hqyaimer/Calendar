@@ -55,6 +55,7 @@
                 data.rander();
                 data.chooseDate(date);
             });
+            this.chooseDate(this.date);
         },
         rander: function() {
             var height = this.$reference.height();
@@ -111,7 +112,6 @@
             }
             html += "</tr></body></table>";
             table.append(html);
-            this.chooseDate(cdate);
             var parent = this;
             table.find('td.currtd').click(function(e) {
                 var sdate = $(this).attr('data-date');
