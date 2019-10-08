@@ -93,12 +93,7 @@
             }
             var rowcount = 1;
             do {
-                //console.log(tdate.format('yyyy-MM-dd'));
-                if (cdate.getTime() == tdate.getTime()) {
-                    html += '<td class="active currtd" data-date="' + tdate.format('yyyy-MM-dd') + '" style="font-size:' + this.fontsize + ';height:' + this.gridh + ';">' + tdate.getDate() + '</td>';
-                } else {
-                    html += '<td class="currtd" data-date="' + tdate.format('yyyy-MM-dd') + '" style="font-size:' + this.fontsize + ';height:' + this.gridh + ';">' + tdate.getDate() + '</td>';
-                }
+                html += '<td class="currtd" data-date="' + tdate.format('yyyy-MM-dd') + '" style="font-size:' + this.fontsize + ';height:' + this.gridh + ';">' + tdate.getDate() + '</td>';
                 if (tdate.getDay() == 0) {
                     html += "</tr><tr>";
                     rowcount++;
@@ -116,6 +111,7 @@
             }
             html += "</tr></body></table>";
             table.append(html);
+            this.chooseDate(cdate);
             var parent = this;
             table.find('td.currtd').click(function(e) {
                 var sdate = $(this).attr('data-date');
