@@ -7,15 +7,19 @@
     };
     Calendar.prototype = {
         $element: null,
+        $reference: null,
         element: null,
         choose:null,
         title: ['星期一', '星期二', '星期三', '星期四', '星期五', '星期六', '星期天'],
         date: new Date(),
         ndate: null,
+        gridh: null,
+        fontsize: null,
         init: function(options) {
             $.extend(true, this, options);
             this.date = new Date(this.date.getFullYear(), this.date.getMonth(), this.date.getDate(), 0, 0, 0);
             this.ndate = this.date;
+            if(!this.$reference) this.$reference = this.$element;
             this.rander();
             var element = this.$element;
             var date = this.date;
@@ -53,6 +57,12 @@
             });
         },
         rander: function() {
+            var height = this.$reference.height();
+            var gridh = (height - 134.5) / 6;
+            this.gridh = gridh + 'px'; 
+            var tfs = this.gridh - 25;
+            this.fontsize = tfs > 8 ? tfs + 'px' : 8 + 'px';//td内边距
+            this.fontsize = tfs < 36 ? tfs + 'px' : 36 + 'px';//td内边距
             $('.calendar-date').val(this.ndate.format('yyyy-MM-dd'));
             var fdate = $('.calendar-fdate').attr("data-format");
             $('.calendar-fdate').html(this.ndate.format(fdate));
@@ -79,15 +89,15 @@
             for (var i = 0; i < day; i++) {
                 var temp = new Date(tdate.getTime());
                 temp.setDate(tdate.getDate() - (day - i));
-                html += '<td class="prevtd" data-date="' + temp.format('yyyy-MM-dd') + '">' + temp.getDate() + '</td>';
+                html += '<td class="prevtd" data-date="' + temp.format('yyyy-MM-dd') + '" style="font-size:' + this.fontsize + ';height:' + this.gridh + ';">' + temp.getDate() + '</td>';
             }
             var rowcount = 1;
             do {
                 //console.log(tdate.format('yyyy-MM-dd'));
                 if (cdate.getTime() == tdate.getTime()) {
-                    html += '<td class="active currtd" data-date="' + tdate.format('yyyy-MM-dd') + '">' + tdate.getDate() + '</td>';
+                    html += '<td class="active currtd" data-date="' + tdate.format('yyyy-MM-dd') + '" style="font-size:' + this.fontsize + ';height:' + this.gridh + ';">' + tdate.getDate() + '</td>';
                 } else {
-                    html += '<td class="currtd" data-date="' + tdate.format('yyyy-MM-dd') + '">' + tdate.getDate() + '</td>';
+                    html += '<td class="currtd" data-date="' + tdate.format('yyyy-MM-dd') + '" style="font-size:' + this.fontsize + ';height:' + this.gridh + ';">' + tdate.getDate() + '</td>';
                 }
                 if (tdate.getDay() == 0) {
                     html += "</tr><tr>";
@@ -98,7 +108,7 @@
             var tday = tdate.getDay() == 0 ? 6 : tdate.getDay() - 1;
             var max = rowcount < 6 ? 14 : 7;
             for (var i = tday; i < max; i++) {
-                html += '<td class="nexttd" data-date="' + tdate.format('yyyy-MM-dd') + '">' + tdate.getDate() + '</td>';
+                html += '<td class="nexttd" data-date="' + tdate.format('yyyy-MM-dd') + '" style="font-size:' + this.fontsize + ';height:' + this.gridh + ';">' + tdate.getDate() + '</td>';
                 if (tdate.getDay() == 0) {
                     html += "</tr><tr>";
                 }

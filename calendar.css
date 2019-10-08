@@ -25,7 +25,6 @@
 }
 .calendar-container table>tbody td {
     width: 14.2857%;
-    height: 100px;
     cursor: pointer;
 }
 .calendar-container table>tbody td.prevtd, .calendar-container table>tbody td.nexttd {
