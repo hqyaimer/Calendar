@@ -27,6 +27,7 @@
                 var data = element.data('calendar');
                 data.ndate = data.date;
                 data.rander();
+                data.chooseDate(data.date);
                 element.find('.calendar-backbtn').css('display', 'none');
             });
             element.find('.calendar-prevbtn').click(function() {
