@@ -77,6 +77,10 @@ Function 功能
 
 `chooseDate` - 参数 `tdate` ,支持 `string` 和 `Date` 类型传入,选中这个日期。
 
+`getSelected` - 参数 `fun` ,使用 `fun(res){ item = res; }` 回调传递当前选中日期。
+
+`appendHtml` - 参数 `data` 有两个属性 `date` 、 `html`,在日历 `td` 中添加Html,例 `{date:'2019-10-12',html:'<a>Hello world</a>'}`。
+
 Example 示例
 -------
 

@@ -16,6 +16,8 @@
         cdate: null,
         gridh: null,
         fontsize: null,
+        selectitem: null,
+        appends:[],
         init: function(options) {
             $.extend(true, this, options);
             this.date = new Date(this.date.getFullYear(), this.date.getMonth(), this.date.getDate(), 0, 0, 0);
@@ -97,10 +99,16 @@
             var rowcount = 1;
             do {
                 if (this.cdate && tdate.getTime() == this.cdate.getTime()) {
-                    html += '<td class="currtd active" data-date="' + tdate.format('yyyy-MM-dd') + '" style="font-size:' + this.fontsize + ';height:' + this.gridh + ';">' + tdate.getDate() + '</td>';
+                    html += '<td class="currtd active" data-date="' + tdate.format('yyyy-MM-dd') + '" style="font-size:' + this.fontsize + ';height:' + this.gridh + ';">' + tdate.getDate();
                 }else{
-                    html += '<td class="currtd" data-date="' + tdate.format('yyyy-MM-dd') + '" style="font-size:' + this.fontsize + ';height:' + this.gridh + ';">' + tdate.getDate() + '</td>';
+                    html += '<td class="currtd" data-date="' + tdate.format('yyyy-MM-dd') + '" style="font-size:' + this.fontsize + ';height:' + this.gridh + ';">' + tdate.getDate();
                 }
+                $.each(this.appends,function(){
+                    if(this.date && tdate.getTime() == this.date.getTime()){
+                        html += this.html;
+                    }
+                });
+                html += '</td>';
                 if (tdate.getDay() == 0) {
                     html += "</tr><tr>";
                     rowcount++;
@@ -141,21 +149,20 @@
         chooseDate: function(tdate) {
             var date = this.date;
             if (typeof tdate == 'string') date = new Date(Date.parse(tdate));
-            if (typeof tdate == 'object') date = tdate;
-            date.setHours(0);
+            if (typeof tdate == 'object') date = new Date(tdate.Format("yyyy-MM-dd 00:00:00"));
             this.cdate = date;
             var element = this.$element;
             var cdate = this.date;
             var table = element.find('.calendar-table');
             var tds = table.find('td');
-            var item = null;
+            var parent = this;
             $.each(tds, function() {
                 var sdate = $(this).attr('data-date');
                 if (sdate) {
                     var tdate = new Date(Date.parse(sdate));
                     tdate.setHours(0);
                     if (tdate.getTime() == date.getTime()) {
-                        item = $(this);
+                        parent.selectitem = $(this);
                         table.find('td').removeClass('active');
                         $(this).addClass('active');
                         if (tdate.getTime() == cdate.getTime()) {
@@ -168,7 +175,16 @@
                     }
                 }
             });
-            if (this.choose) this.choose(item);
+            if (this.choose) this.choose(this.selectitem);
+        },
+        appendHtml: function(data){
+            var date = new Date(data.date);
+            date.setHours(0);
+            this.appends.push({date:date,html:data.html});
+            this.rander();
+        },
+        getSelected: function(fun){
+            fun(this.selectitem);
         }
     }
     $.fn.calendar = function(option, e) {
