@@ -81,6 +81,8 @@ Function 功能
 
 `appendHtml` - 参数 `data` 有两个属性 `date` 、 `html`,在日历 `td` 中添加Html,例 `{date:'2019-10-12',html:'<a>Hello world</a>'}`。
 
+`reset` - 参数 `options` 同初始化参数相同，重置calendar。
+
 Example 示例
 -------
 

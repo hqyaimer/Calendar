@@ -185,6 +185,14 @@
         },
         getSelected: function(fun){
             fun(this.selectitem);
+        },
+        reset: function(options){
+            $.extend(true, this, options);
+            this.date = new Date(this.date.getFullYear(), this.date.getMonth(), this.date.getDate(), 0, 0, 0);
+            this.ndate = this.date;
+            if (!this.$reference) this.$reference = this.$element;
+            this.appends = [];
+            this.rander();
         }
     }
     $.fn.calendar = function(option, e) {
